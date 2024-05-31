@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Birthday Message Generator</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            form {
+                margin: auto;
+                width: 50%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            label {
+                display: block;
+                margin: 10px 0;
+            }
+            input[type="text"], input[type="submit"] {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                border: 2px solid #ccc;
+                border-radius: 4px;
+            }
+            input[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+            /* Sidebar styles */
+            .sidebar {
+                width: 200px;
+                position: fixed;
+                height: 100%;
+                background: #333;
+                padding: 20px;
+                color: #fff;
+            }
+            .sidebar a {
+                color: #fff;
+                text-decoration: none;
+            }
+            .main-content {
+                margin-left: 220px; /* Adjusted to account for sidebar */
+                padding: 20px;
+            }
+            .main-content h1 {
+            text-align: center ;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="/">Generate Message</a></li>
+                <li><a href="/add_event">Add Event</a></li>
+                <li><a href="/delete_event">Delete Event</a></li>
+                <!-- Add more links here as needed -->
+            </ul>
+        </div>
+        <div class="main-content">
+            <h1>Birthday Message Generator</h1>
+
+            <form method="POST">
+                <label for="name">Name:</label><br />
+                <input type="text" id="name" name="name" /><br />
+                <label for="age">Age:</label><br />
+                <input type="text" id="age" name="age" /><br />
+                <label for="relationship">Relationship:</label><br />
+                <input type="text" id="relationship" name="relationship" /><br />
+                <label for="who_send_the_message">Who is sending the message:</label><br />
+                <input type="text" id="who_send_the_message" name="who_send_the_message" /><br />
+                <input type="submit" value="Generate Message" />
+            </form>
+
+            {% if message %}
+            <h2>Generated Message:</h2>
+            <p>{{ message }}</p>
+            {% endif %}
+        </div>
+    </body>
+</html>

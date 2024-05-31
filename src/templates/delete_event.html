@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Event</title>
+    <style>
+        /* Sidebar styles */
+        .sidebar {
+            width: 200px;
+            position: fixed;
+            height: 100%;
+            background: #333;
+            padding: 20px;
+            color: #fff;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .main-content {
+            margin-left: 220px; /* Adjusted to account for sidebar */
+            padding: 20px;
+        }
+        .main-content h1 {
+            text-align: center ;
+        }
+            body {
+        font-family: Arial, sans-serif;
+    }
+    form {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+    }
+    label {
+        display: block;
+        margin-top: 20px;
+    }
+    input[type="text"], input[type="date"], input[type="tel"], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+    input[type="submit"]:hover {
+        opacity: 0.8;
+    }
+    /* Sidebar styles */
+    .sidebar {
+        width: 200px;
+        position: fixed;
+        height: 100%;
+        background: #333;
+        padding: 20px;
+        color: #fff;
+    }
+    .sidebar a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+    .main-content {
+        margin-left: 220px; /* Adjusted to account for sidebar */
+        padding: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="/">Generate Message</a></li>
+            <li><a href="/add_event">Add Event</a></li>
+            <li><a href="/delete_event">Delete Event</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <h1>Delete Event</h1>
+        <form method="POST">
+            <select name="event_id">
+                {% for event in events %}
+                    <option value="{{ event.id }}">{{ event.summary }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Delete Event">
+        </form>
+    </div>
+</body>
+</html>

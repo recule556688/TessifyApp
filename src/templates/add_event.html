@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Event</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+        }
+        label {
+            display: block;
+            margin-top: 20px;
+        }
+        input[type="text"], input[type="date"], input[type="tel"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            opacity: 0.8;
+        }
+        /* Sidebar styles */
+        .sidebar {
+            width: 200px;
+            position: fixed;
+            height: 100%;
+            background: #333;
+            padding: 20px;
+            color: #fff;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .main-content {
+            margin-left: 220px; /* Adjusted to account for sidebar */
+            padding: 20px;
+        }
+        .main-content h1 {
+            text-align: center ;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="/">Generate Message</a></li>
+            <li><a href="/add_event">Add Event</a></li>
+            <li><a href="/delete_event">Delete Event</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <h1>Add Event</h1>
+        <form method="POST">
+            <label for="event_type">Event Type:</label><br>
+            <input type="text" id="event_type" name="event_type"><br>
+            <label for="event_name">Event Name:</label><br>
+            <input type="text" id="event_name" name="event_name"><br>
+            <label for="event_date">Event Date:</label><br>
+            <input type="date" id="event_date" name="event_date"><br>
+            <label for="phone_number">Phone Number:</label><br>
+            <input type="tel" id="phone_number" name="phone_number"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
