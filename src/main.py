@@ -115,10 +115,20 @@ def display_events(service):
             print("------------------------")
 
 
-def generate_birthday_message(service, event_type):
-    response = generate('mistral', 'Why is the sky blue?')
-    print(response['response'])
+mom = {
+    "name": "Mom",
+    "age": 45,
+    "relationship": "mom and son",
+    "who_send_the_message": "Luca",
+}
 
+
+def generate_birthday_message(person, event_type):
+    model = "mistral"
+    if event_type == "birthday":
+        prompt = f"Create a warm, heartfelt, and affectionate birthday message for a {person['age']} year old named {person['name']}. The message is being sent by {person['who_send_the_message']}, who is her son. The message should convey love, appreciation, and wishes for a joyful birthday but also staying short and powerful."
+        response = generate(model, prompt)
+        return response["response"]
 
 
 def main():
