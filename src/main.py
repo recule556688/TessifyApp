@@ -1,8 +1,9 @@
+import os
+import pickle
+from ollama import generate
 import datetime
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
-import os
-import pickle
 from google.auth.transport.requests import Request
 
 
@@ -106,12 +107,20 @@ def display_events(service):
 
     for event in events:
         # Only display the event if the summary contains 'Birthday' or 'Anniversaire'
-        if 'Birthday' in event['summary'] or 'Anniversaire' in event['summary']:
+        if "Birthday" in event["summary"] or "Anniversaire" in event["summary"]:
             start = event["start"].get("dateTime", event["start"].get("date"))
             print(f"Event: {event['summary']}")
             print(f"Start: {start}")
             print(f"Description: {event.get('description', 'No description')}")
             print("------------------------")
+
+
+def generate_birthday_message(service, event_type):
+    response = generate('mistral', 'Why is the sky blue?')
+    print(response['response'])
+
+
+
 def main():
     creds = None
     # The file token.pickle stores the user's access and refresh tokens, and is
@@ -129,11 +138,10 @@ def main():
             )
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
-        with open("token.pickle", "wb") as token:
+        with open("sessions/token.pickle", "wb") as token:
             pickle.dump(creds, token)
 
     service = build("calendar", "v3", credentials=creds)
-
 
     while True:
         # Ask the user what they want to do
