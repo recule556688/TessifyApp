@@ -1,0 +1,42 @@
+name: tessifyapp
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_sign_in: ^6.2.1
+  googleapis: ^13.1.0
+  googleapis_auth: ^1.4.1
+  flutter_calendar_carousel: ^2.0.1
+  cupertino_icons: ^1.0.6
+  http: ^1.2.1
+  intl: ^0.18.1
+  contacts_service: ^0.6.3
+  permission_handler: ^11.3.1
+  flutter_sms: ^2.3.2
+  shared_preferences: ^2.0.8
+  uuid: ^4.4.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+  # Example for adding fonts
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
